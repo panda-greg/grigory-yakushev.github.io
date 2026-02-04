@@ -1,1 +1,0 @@
-# grigory-yakushev.github.io
