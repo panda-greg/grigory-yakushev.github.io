@@ -56,24 +56,28 @@
         }
 
         .profile-photo {
-            width: 180px;
-            height: 180px;
-            min-width: 180px;
-            min-height: 180px;
-            max-width: 180px;
-            max-height: 180px;
+            width: 180px !important;
+            height: 180px !important;
+            min-width: 180px !important;
+            min-height: 180px !important;
+            max-width: 180px !important;
+            max-height: 180px !important;
             border-radius: 16px;
             object-fit: cover;
             border: 4px solid #ecf0f1;
             box-shadow: 0 8px 24px rgba(52, 152, 219, 0.2);
             background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             font-size: 56px;
             color: white;
             font-weight: 700;
             letter-spacing: 2px;
+            flex-shrink: 0;
+        }
+        
+        .profile-photo-wrapper {
+            width: 180px;
+            height: 180px;
             flex-shrink: 0;
         }
 
@@ -493,7 +497,11 @@
     <div class="container">
         <!-- Header Card with Photo -->
         <div class="header-card">
-            <img src="cv_photo.png" alt="GY" class="profile-photo">
+            <div class="profile-photo-wrapper">
+                
+    				<img src="cv_photo.png" alt="Grigory Yakushev" class="profile-photo">
+			</div>
+            
             <div class="header-content">
                 <h1 class="name">Grigory Yakushev</h1>
                 <p class="title">Data & Analytics Architect | Product Owner | Technical Leader</p>
