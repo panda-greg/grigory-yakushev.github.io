@@ -12,42 +12,80 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #e4e4e7;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 40px, #3498db 40px, #3498db 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, #3498db 40px, #3498db 41px);
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 40px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-            border-radius: 12px;
+        /* Header Card */
+        .header-card {
+            background: white;
+            border-radius: 16px;
             padding: 48px;
-            margin-bottom: 48px;
-            border: 1px solid rgba(94, 129, 244, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            margin-bottom: 32px;
+            box-shadow: 0 10px 40px rgba(52, 73, 94, 0.12);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+            border-left: 6px solid #3498db;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 4px solid #ecf0f1;
+            box-shadow: 0 8px 24px rgba(52, 152, 219, 0.2);
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .header-content {
+            flex: 1;
         }
 
         .name {
             font-size: 42px;
             font-weight: 700;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 8px;
+            color: #2c3e50;
         }
 
         .title {
             font-size: 20px;
-            color: #94a3b8;
+            color: #7f8c8d;
             margin-bottom: 24px;
             font-weight: 500;
         }
@@ -57,7 +95,7 @@
             flex-wrap: wrap;
             gap: 24px;
             font-size: 14px;
-            color: #94a3b8;
+            color: #7f8c8d;
         }
 
         .contact-item {
@@ -67,53 +105,93 @@
         }
 
         .contact-item a {
-            color: #818cf8;
+            color: #3498db;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .contact-item a:hover {
-            color: #a5b4fc;
+            color: #2980b9;
         }
 
-        /* Section */
+        /* Section Cards */
         .section {
-            background: rgba(15, 52, 96, 0.4);
-            border-radius: 12px;
-            padding: 32px;
+            background: white;
+            border-radius: 16px;
+            padding: 36px;
             margin-bottom: 32px;
-            border: 1px solid rgba(94, 129, 244, 0.15);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(52, 73, 94, 0.1);
+            border-left: 4px solid #ecf0f1;
+            transition: all 0.3s;
+        }
+
+        .section:hover {
+            box-shadow: 0 12px 40px rgba(52, 152, 219, 0.15);
+            border-left-color: #3498db;
         }
 
         .section-title {
             font-size: 26px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 24px;
-            color: #f1f5f9;
-            padding-bottom: 12px;
-            border-bottom: 2px solid rgba(129, 140, 248, 0.3);
+            color: #2c3e50;
             display: flex;
             align-items: center;
             gap: 12px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #ecf0f1;
         }
 
         .section-icon {
-            font-size: 24px;
+            font-size: 28px;
         }
 
-        /* Summary Card */
+        /* Summary */
         .summary-card {
-            background: rgba(30, 58, 138, 0.3);
-            border-radius: 8px;
+            background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%);
+            border-radius: 12px;
             padding: 28px;
-            border-left: 4px solid #818cf8;
+            border-left: 4px solid #3498db;
         }
 
         .summary-text {
-            color: #cbd5e1;
+            color: #34495e;
             line-height: 1.8;
             font-size: 15px;
+        }
+
+        /* Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .achievement-number {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .achievement-text {
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.95;
         }
 
         /* Skills Grid */
@@ -124,64 +202,66 @@
         }
 
         .skill-category {
-            background: rgba(30, 58, 138, 0.25);
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
             padding: 24px;
-            border: 1px solid rgba(129, 140, 248, 0.2);
-            transition: transform 0.3s, border-color 0.3s;
+            border: 2px solid #dee2e6;
+            transition: all 0.3s;
         }
 
         .skill-category:hover {
             transform: translateY(-4px);
-            border-color: rgba(129, 140, 248, 0.4);
+            border-color: #3498db;
+            box-shadow: 0 8px 24px rgba(52, 152, 219, 0.15);
         }
 
         .skill-category-title {
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 16px;
-            color: #a5b4fc;
-            font-size: 16px;
+            color: #2980b9;
+            font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .skill-list {
-            color: #cbd5e1;
+            color: #495057;
             font-size: 14px;
             line-height: 1.8;
         }
 
         /* Experience */
         .experience-item {
-            margin-bottom: 36px;
-            padding: 24px;
-            background: rgba(30, 58, 138, 0.2);
-            border-radius: 8px;
-            border-left: 3px solid #818cf8;
-            transition: transform 0.3s;
+            margin-bottom: 32px;
+            padding: 28px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s;
         }
 
         .experience-item:hover {
             transform: translateX(4px);
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.15);
         }
 
         .job-title {
             font-size: 20px;
-            font-weight: 600;
-            color: #a5b4fc;
+            font-weight: 700;
+            color: #2c3e50;
             margin-bottom: 6px;
         }
 
         .company {
             font-size: 16px;
-            color: #818cf8;
+            color: #3498db;
             margin-bottom: 6px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .date-location {
             font-size: 14px;
-            color: #94a3b8;
+            color: #7f8c8d;
             margin-bottom: 16px;
         }
 
@@ -194,7 +274,7 @@
             padding-left: 28px;
             margin-bottom: 10px;
             position: relative;
-            color: #cbd5e1;
+            color: #34495e;
             font-size: 15px;
             line-height: 1.7;
         }
@@ -203,37 +283,39 @@
             content: "▸";
             position: absolute;
             left: 8px;
-            color: #818cf8;
+            color: #3498db;
             font-weight: bold;
             font-size: 18px;
         }
 
         .project-highlight {
-            background: rgba(67, 56, 202, 0.15);
-            padding: 16px 20px;
-            border-radius: 6px;
+            background: linear-gradient(135deg, #d6eaf8 0%, #aed6f1 100%);
+            padding: 20px;
+            border-radius: 10px;
             margin: 12px 0;
-            border-left: 3px solid #a78bfa;
+            border-left: 4px solid #2980b9;
         }
 
         .project-title {
-            font-weight: 600;
-            color: #c4b5fd;
+            font-weight: 700;
+            color: #1f618d;
             margin-bottom: 8px;
             font-size: 15px;
         }
 
         .tech-stack {
             margin-top: 16px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(129, 140, 248, 0.2);
+            padding-top: 16px;
+            border-top: 2px solid #dee2e6;
         }
 
         .tech-label {
-            color: #94a3b8;
+            color: #6c757d;
             font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .tech-tags {
@@ -243,88 +325,84 @@
         }
 
         .tech-tag {
-            background: rgba(99, 102, 241, 0.2);
-            padding: 4px 12px;
-            border-radius: 4px;
+            background: white;
+            padding: 6px 14px;
+            border-radius: 6px;
             font-size: 12px;
-            color: #c7d2fe;
-            border: 1px solid rgba(129, 140, 248, 0.3);
+            color: #2980b9;
+            border: 2px solid #d6eaf8;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tech-tag:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+            transform: translateY(-2px);
         }
 
         /* Education & Certifications */
         .education-item, .cert-item {
-            background: rgba(30, 58, 138, 0.2);
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
             padding: 20px 24px;
             margin-bottom: 16px;
-            border-left: 3px solid #818cf8;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .education-item:hover, .cert-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 16px rgba(52, 152, 219, 0.15);
         }
 
         .education-title, .cert-title {
-            font-weight: 600;
-            color: #a5b4fc;
+            font-weight: 700;
+            color: #2c3e50;
             margin-bottom: 6px;
             font-size: 16px;
         }
 
         .education-details, .cert-details {
             font-size: 14px;
-            color: #94a3b8;
+            color: #7f8c8d;
         }
 
-        /* Achievements Grid */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .achievement-card {
-            background: rgba(67, 56, 202, 0.2);
-            border-radius: 8px;
-            padding: 24px;
-            border: 1px solid rgba(167, 139, 250, 0.3);
-            transition: transform 0.3s;
-        }
-
-        .achievement-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .achievement-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: #a78bfa;
-            margin-bottom: 8px;
-        }
-
-        .achievement-text {
-            color: #cbd5e1;
+        /* Recognition Badge */
+        .recognition-badge {
+            background: linear-gradient(135d, #27ae60 0%, #229954 100%);
+            padding: 14px 20px;
+            border-radius: 10px;
+            margin-top: 12px;
+            color: white;
             font-size: 14px;
-            line-height: 1.6;
+        }
+
+        .recognition-badge strong {
+            font-weight: 700;
         }
 
         /* Call to Action */
         .cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
             padding: 48px;
-            border-radius: 12px;
+            border-radius: 16px;
             text-align: center;
-            margin-top: 48px;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 15px 50px rgba(52, 152, 219, 0.3);
+            color: white;
         }
 
         .cta-text {
-            font-size: 24px;
-            margin-bottom: 16px;
-            font-weight: 600;
-            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .cta-subtext {
             font-size: 16px;
-            margin-bottom: 24px;
-            color: #e0e7ff;
+            margin-bottom: 28px;
+            opacity: 0.95;
         }
 
         .cta-buttons {
@@ -335,30 +413,40 @@
         }
 
         .cta-button {
-            background: rgba(255, 255, 255, 0.95);
-            color: #5b21b6;
+            background: white;
+            color: #3498db;
             padding: 14px 32px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s;
             font-size: 15px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .cta-button:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background: #ecf0f1;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 20px;
+            body {
+                padding: 20px 10px;
             }
 
-            .header {
+            .header-card {
+                grid-template-columns: 1fr;
                 padding: 32px 24px;
+                text-align: center;
+                gap: 24px;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+                width: 150px;
+                height: 150px;
             }
 
             .name {
@@ -372,6 +460,7 @@
             .contact {
                 flex-direction: column;
                 gap: 12px;
+                text-align: center;
             }
 
             .section {
@@ -386,30 +475,41 @@
             .cta {
                 padding: 32px 24px;
             }
+
+            .cta-text {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="background-pattern"></div>
+    
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1 class="name">Grigory Yakushev</h1>
-            <p class="title">Data & Analytics Architect | Product Owner | Technical Leader</p>
-            <div class="contact">
-                <div class="contact-item">
-                    📍 Bali, Indonesia • Remote Worldwide
-                </div>
-                <div class="contact-item">
-                    ✉️ <a href="mailto:gregorysebalo@yahoo.com">gregorysebalo@yahoo.com</a>
-                </div>
-                <div class="contact-item">
-                    📱 +628135315530
-                </div>
-                <div class="contact-item">
-                    💼 <a href="https://linkedin.com/in/grigory-yakushev" target="_blank">LinkedIn</a>
+        <!-- Header Card with Photo -->
+        <div class="header-card">
+            <div class="profile-photo">
+            <img src="cv_photo.png" alt="GY class="profile-photo">
+            </div>
+            <div class="header-content">
+                <h1 class="name">Grigory Yakushev</h1>
+                <p class="title">Data & Analytics Architect | Product Owner | Technical Leader</p>
+                <div class="contact">
+                    <div class="contact-item">
+                        📍 Bali, Indonesia • Remote Worldwide
+                    </div>
+                    <div class="contact-item">
+                        ✉️ <a href="mailto:gregorysebalo@yahoo.com">gregorysebalo@yahoo.com</a>
+                    </div>
+                    <div class="contact-item">
+                        📱 +628135315530
+                    </div>
+                    <div class="contact-item">
+                        💼 <a href="https://linkedin.com/in/grigory-yakushev" target="_blank">LinkedIn</a>
+                    </div>
                 </div>
             </div>
-        </header>
+        </div>
 
         <!-- Summary -->
         <section class="section">
@@ -431,27 +531,27 @@
             <div class="achievements-grid">
                 <div class="achievement-card">
                     <div class="achievement-number">$1M+</div>
-                    <div class="achievement-text">Total project value delivered, from pre-sales to production</div>
+                    <div class="achievement-text">Total project value delivered</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-number">1,000+</div>
-                    <div class="achievement-text">Users supported in enterprise KPI system launched in 3 months</div>
+                    <div class="achievement-text">Users in KPI system launched in 3 months</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-number">50+</div>
-                    <div class="achievement-text">Dashboards and analytics solutions delivered across 15+ enterprise clients</div>
+                    <div class="achievement-text">Dashboards delivered across 15+ clients</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-number">6 People</div>
-                    <div class="achievement-text">Maximum team size led across consulting and product development</div>
+                    <div class="achievement-text">Max team size led</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-number">60%</div>
-                    <div class="achievement-text">Cost reduction achieved through open-source architecture migration</div>
+                    <div class="achievement-text">Cost reduction via open-source migration</div>
                 </div>
                 <div class="achievement-card">
                     <div class="achievement-number">16 Months</div>
-                    <div class="achievement-text">Double promotion at EY based on exceptional delivery performance</div>
+                    <div class="achievement-text">Double promotion at EY</div>
                 </div>
             </div>
         </section>
@@ -570,7 +670,7 @@
                 <div class="job-title">BI/DWH Expert (Senior Consultant → Expert)</div>
                 <div class="company">BeringPro (ex. BearingPoint)</div>
                 <div class="date-location">November 2019 - September 2024 • Russia (Remote/Hybrid)</div>
-                <p class="summary-text" style="margin-bottom: 16px;">Progressed from Senior Consultant to Expert through delivery of complex data warehouse and analytics projects for Fortune 500 clients. Led technical teams, architected solutions, and drove business development.</p>
+                <p class="summary-text" style="margin-bottom: 16px; color: #495057;">Progressed from Senior Consultant to Expert through delivery of complex data warehouse and analytics projects for Fortune 500 clients. Led technical teams, architected solutions, and drove business development.</p>
                 
                 <div class="project-highlight">
                     <div class="project-title">Data Platform Transformation Lead | Ball Corporation (Arnest) (Dec 2022 - Sep 2024)</div>
@@ -629,7 +729,7 @@
                 <div class="job-title">RPA Developer → Advanced Staff (Analyst)</div>
                 <div class="company">Ernst & Young (EY Russia)</div>
                 <div class="date-location">July 2018 - November 2019 • Moscow, Russia</div>
-                <p class="summary-text" style="margin-bottom: 16px;">Launched IT career in EY's Technology Consulting practice, rapidly advancing through technical certifications and delivery of automation, analytics, and ML solutions.</p>
+                <p class="summary-text" style="margin-bottom: 16px; color: #495057;">Launched IT career in EY's Technology Consulting practice, rapidly advancing through technical certifications and delivery of automation, analytics, and ML solutions.</p>
                 
                 <ul class="responsibilities">
                     <li><strong>Planning Solution Developer | Avilon Auto Dealer:</strong> Implemented SAP Analytics Cloud planning solution with predictive ML model for agricultural forecasting</li>
@@ -639,8 +739,8 @@
                     <li><strong>RPA Developer | Alfa Bank:</strong> Developed Blue Prism automation robots, reducing manual processing time by 70%</li>
                 </ul>
 
-                <div style="background: rgba(52, 211, 153, 0.15); padding: 12px 16px; border-radius: 6px; margin-top: 12px; border-left: 3px solid #34d399;">
-                    <strong style="color: #6ee7b7;">Recognition:</strong> <span style="color: #cbd5e1;">Double promotion in 16 months, received PlatEYnum Standard Award for exceptional performance</span>
+                <div class="recognition-badge">
+                    <strong>🌟 Recognition:</strong> Double promotion in 16 months, received PlatEYnum Standard Award for exceptional performance
                 </div>
 
                 <div class="tech-stack">
@@ -671,46 +771,55 @@
             </div>
         </section>
 
+
         <!-- Certifications -->
-        <section class="section">
-            <h2 class="section-title"><span class="section-icon">📜</span>Certifications</h2>
-            <div class="cert-item">
-                <div class="cert-title">SAP Certified Application Associate — BW/4HANA 2.x</div>
-                <div class="cert-details">SAP</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-title">Visiology Platform (Advanced, Basic, Administrator, Smart Forms)</div>
-                <div class="cert-details">Visiology</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-title">Knowledge Space – Basic Course</div>
-                <div class="cert-details">Knowledge Space</div>
-            </div>
-            <div class="cert-item">
-                <div class="cert-title">Power BI Fundamentals</div>
-                <div class="cert-details">Udemy</div>
-            </div>
-        </section>
+        <section class="section"><function_calls>
+		<invoke name="artifacts">
+		<parameter name="command">update</parameter>
+		<parameter name="id">resume-bright-bidwh</parameter>
+		<parameter name="old_str">        <!-- Certifications -->
+		<section class="section</parameter>
+		<parameter name="new_str">        <!-- Certifications -->
+		<section class="section">
+		<h2 class="section-title"><span class="section-icon">📜</span>Certifications</h2>
+		<div class="cert-item">
+		<div class="cert-title">SAP Certified Application Associate — BW/4HANA 2.x</div>
+		<div class="cert-details">SAP</div>
+		</div>
+		<div class="cert-item">
+		<div class="cert-title">Visiology Platform (Advanced, Basic, Administrator, Smart Forms)</div>
+		<div class="cert-details">Visiology</div>
+		</div>
+		<div class="cert-item">
+		<div class="cert-title">Knowledge Space – Basic Course</div>
+		<div class="cert-details">Knowledge Space</div>
+		</div>
+		<div class="cert-item">
+		<div class="cert-title">Power BI Fundamentals</div>
+		<div class="cert-details">Udemy</div>
+		</div>
+		</section>
 
         <!-- What I Bring -->
-        <section class="section">
-            <h2 class="section-title"><span class="section-icon">💡</span>What I Bring</h2>
-            <div class="summary-card">
-                <p class="summary-text">
-                    I bridge the gap between business strategy and technical execution. My consulting background taught me to listen deeply to stakeholders, my architecture experience enables me to design scalable solutions, and my product ownership skills ensure I deliver outcomes that matter. I don't chase specific technologies—I focus on solving business problems with the right tools, leveraging AI and modern practices to accelerate delivery without sacrificing quality.
-                </p>
-            </div>
-        </section>
+    <section class="section">
+        <h2 class="section-title"><span class="section-icon">💡</span>What I Bring</h2>
+        <div class="summary-card">
+            <p class="summary-text">
+                I bridge the gap between business strategy and technical execution. My consulting background taught me to listen deeply to stakeholders, my architecture experience enables me to design scalable solutions, and my product ownership skills ensure I deliver outcomes that matter. I don't chase specific technologies—I focus on solving business problems with the right tools, leveraging AI and modern practices to accelerate delivery without sacrificing quality.
+            </p>
+        </div>
+    </section>
 
-        <!-- Call to Action -->
-        <div class="cta">
-            <div class="cta-text">Let's Build Something Great Together</div>
-            <div class="cta-subtext">Available for consulting, architecture, and leadership roles</div>
-            <div class="cta-buttons">
-                <a href="mailto:gregorysebalo@yahoo.com" class="cta-button">📧 Email Me</a>
-                <a href="https://linkedin.com/in/grigory-yakushev" target="_blank" class="cta-button">💼 LinkedIn</a>
-            </div>
+    <!-- Call to Action -->
+    <div class="cta">
+        <div class="cta-text">Let's Build Something Great Together</div>
+        <div class="cta-subtext">Available for consulting, architecture, and leadership roles</div>
+        <div class="cta-buttons">
+            <a href="mailto:gregorysebalo@yahoo.com" class="cta-button">📧 Email Me</a>
+            <a href="https://linkedin.com/in/grigory-yakushev" target="_blank" class="cta-button">💼 LinkedIn</a>
         </div>
     </div>
+</div>
 </body>
 </html>
+</parameter>
